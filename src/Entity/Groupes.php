@@ -24,6 +24,9 @@ class Groupes
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\ManyToOne(inversedBy: 'groupes')]
+    private ?users $users = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -61,6 +64,18 @@ class Groupes
     public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getUsers(): ?users
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?users $users): self
+    {
+        $this->users = $users;
 
         return $this;
     }
