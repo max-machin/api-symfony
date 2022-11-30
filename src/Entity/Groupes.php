@@ -15,7 +15,7 @@ class Groupes
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255)]
     private ?string $name = null;
 
     #[ORM\Column]
@@ -25,7 +25,7 @@ class Groupes
     private ?\DateTimeImmutable $updatedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'groupes')]
-    private ?users $users = null;
+    private ?Users $Users = null;
 
     public function getId(): ?int
     {
@@ -68,14 +68,14 @@ class Groupes
         return $this;
     }
 
-    public function getUsers(): ?users
+    public function getUsers(): ?Users
     {
-        return $this->users;
+        return $this->Users;
     }
 
-    public function setUsers(?users $users): self
+    public function setUsers(?Users $Users): self
     {
-        $this->users = $users;
+        $this->Users = $Users;
 
         return $this;
     }
